@@ -1,23 +1,14 @@
 #22. Program to encrypt and decrypt strings using a simple Caesar cipher. 
 
-word = input("Enter the sentence: ").split()
+word = input("Enter the sentence: ")
 
-for w in word:
-        n=len(w)
-        if n>=1 and n<3:
-            r = w.replace(w,"***")
-            print(r,end=" ")
-        elif n>=3 and n<5:
-            r = w.replace(w,"#####")
-            print(r,end=" ")
-        elif n>=5 and n<7:
-            r = w.replace(w,"%%%%%")
-            print(r,end=" ")
-        elif n>=7 and n<9:
-            r = w.replace(w,"&&&&&&&")
-            print(r,end=" ")
-        else:
-            r = w.replace(w,"#@*^%$&^%*&^")
-            print(r,end=" ")
-        
+m = str.maketrans('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,','A7#bC9@dE3$Fg!H2^iJ&kL*mN(oP)qR_sT+uV=wX-ZY0`1{2|3}4~5;:6"<>,.%&')
+ns = word.translate(m)
+print("Encrypted text:  ",ns)
+
+# decoding the message
+
+dm = str.maketrans('A7#bC9@dE3$Fg!H2^iJ&kL*mN(oP)qR_sT+uV=wX-ZY0`1{2|3}4~5;:6"<>,.%&','ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,')
+original = ns.translate(dm)
+print("Decrypted text:",original)
         
